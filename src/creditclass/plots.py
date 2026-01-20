@@ -164,7 +164,7 @@ def plot_roc_curve(
         _, ax = plt.subplots(figsize=DEFAULT_FIGSIZE)
 
     roc_data = get_roc_curve(model, X_test, y_test)
-    auc = np.trapz(roc_data["tpr"], roc_data["fpr"])
+    auc = np.trapezoid(roc_data["tpr"], roc_data["fpr"])
 
     curve_label = label or "Model"
     if show_auc:

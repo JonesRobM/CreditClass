@@ -102,7 +102,7 @@ def create_dashboard(trained_models, y_test, feature_names, output_path):
         X_te = model_data["X_test"]
 
         roc_data = get_roc_curve(model, X_te, y_test)
-        auc = np.trapz(roc_data["tpr"], roc_data["fpr"])
+        auc = np.trapezoid(roc_data["tpr"], roc_data["fpr"])
 
         display_name = model_name.replace("_", " ").title()
         ax_roc.plot(
